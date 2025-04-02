@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Calibri;
+    line-height: 1.6;
+    background-color: rgb(240, 240, 235);
+    padding: 20px;
+}
+
+#app{
+    max-width: 600px;
+    margin: auto;
+    background-color: yellowgreen;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px;
+}
+
+h1{
+    color: rgb(160, 30, 30);
+    margin-bottom: 20px;
+    text-align: center;
+}
+#orderForm{
+    flex: 1;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+}
+
+p{
+    padding-top: 10px;
+    color: rgb(255, 0, 217);
+    
+}
