@@ -2,7 +2,7 @@
 
 const app = document.getElementById('app');
 const orderForm = document.querySelector('#orderForm');
-const orderInput = document.querySelector('orderInput');
+const orderInput = document.querySelector('#orderInput');
 const orderList = document.getElementById('orderList');
 const orderCount = document.querySelector('#orderCount');
 
@@ -16,7 +16,7 @@ const createOrderTemplate = (orderText) =>{
     span.textContent = orderText;
     
     const button = document.createElement('button');
-    button.textContent = 'Completed';
+    button.textContent = 'Done';
 
     div.appendChild(span);
     div.appendChild(button);
@@ -37,6 +37,7 @@ const updateCounter = () =>{
 orderForm.addEventListener('submit', (e) =>{
     e.preventDefault();
     const orderText = orderInput.value.trim();
+
     if(orderText.length <3){
         orderInput.classList.add('error');
         return;
@@ -58,14 +59,15 @@ orderList.addEventListener('click', (e) =>{
     if(e.target.tagName === 'BUTTON'){
         const orderDiv = e.target.parentNode;
         const orderSpan = orderDiv.firstChild;
+        
+        orderSpan.classList.toggle('Done');
+        orderDiv.setAttribute('data-done',
+        orderSpan.classList.contains('Done').toString());
 
-        orderDiv.setAttribute('data-completed',
-        orderSpan.classList.contains('completed').toString());
-
-        e.target.innerHTML = orderSpan.classList.contains('completed')
+        e.target.innerHTML = orderSpan.classList.contains('Done')
         ? 'Re-Do'
-        : 'Completed';
-        orderCounter = document.querySelectorAll('.order-item:not([data-completed ="true"])').length;
+        : 'Done';
+        orderCounter = document.querySelectorAll('.order-item:not([data-Done ="true"])').length;
         updateCounter();
     }
 }); 
