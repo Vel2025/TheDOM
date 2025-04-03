@@ -52,4 +52,22 @@ orderForm.addEventListener('submit', (e) =>{
 
 })
 
+//Order completion
+
+orderList.addEventListener('click', (e) =>{
+    if(e.target.tagName === 'BUTTON'){
+        const orderDiv = e.target.parentNode;
+        const orderSpan = orderDiv.firstChild;
+
+        orderDiv.setAttribute('data-completed',
+        orderSpan.classList.contains('completed').toString());
+
+        e.target.innerHTML = orderSpan.classList.contains('completed')
+        ? 'Re-Do'
+        : 'Completed';
+        orderCounter = document.querySelectorAll('.order-item:not([data-completed ="true"])').length;
+        updateCounter();
+    }
+}); 
+updateCounter();
 
