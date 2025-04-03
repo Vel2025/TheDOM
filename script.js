@@ -61,13 +61,13 @@ orderList.addEventListener('click', (e) =>{
         const orderSpan = orderDiv.firstChild;
         
         orderSpan.classList.toggle('Done');
-        orderDiv.setAttribute('data-done',
+        orderDiv.setAttribute('data-Done',
         orderSpan.classList.contains('Done').toString());
 
         e.target.innerHTML = orderSpan.classList.contains('Done')
-        ? 'Re-Do'
+        ? 'ReDo'
         : 'Done';
-        orderCounter = document.querySelectorAll('.order-item:not([data-Done ="true"])').length;
+        orderCounter = document.querySelectorAll('.order-item:not([data-done ="true"])').length;
         updateCounter();
     }
 }); 
