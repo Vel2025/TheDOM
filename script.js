@@ -24,5 +24,32 @@ const createOrderTemplate = (orderText) =>{
     return fragment;
 }
 
+//Order count
+
+let orderCounter = 0;
+const updateCounter = () =>{
+    orderCount.textContent = orderCounter;
+    document.title = `Orders (${orderCounter})`;
+}
+
+//Order submission
+
+orderForm.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    const orderText = orderInput.value.trim();
+    if(orderText.length <3){
+        orderInput.classList.add('error');
+        return;
+    }
+    const orderFragment = createOrderTemplate(orderText);
+    orderList.appendChild(orderFragment);
+
+    orderCounter++;
+    updateCounter();
+    orderInput.value = '';
+    orderInput.classList.remove('error');
+    window.scrollTo(0, document.body.scrollHeight);
+
+})
 
 
